@@ -30,3 +30,24 @@ def firstPositiveElement(array)
 	
 	return fPos
 end
+
+def doSelectedMethod(method, path)
+	array = File.read(path).split 
+	
+	for i in 0..array.length do
+		array[i] = array[i].to_i
+	end
+	
+	case method
+	when 1
+	 output = minElement(array)
+	when 2
+	 output = firstPositiveElement(array)
+	else
+		puts "Choose method 1 or 2!"
+	end
+	
+	return output
+end
+
+puts(doSelectedMethod(ARGV[0].to_i,ARGV[1]))

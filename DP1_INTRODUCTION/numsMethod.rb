@@ -31,4 +31,18 @@ def dividersSum(num)
 	return sum
 end
 
+# Method 2 (Метод 2 Найти количество нечетных цифр числа, больших 3)
+def countDigitsGreaterThenThree(num)
+	count = 0
+	until num == 0 do
+		digit = num % 10
+		num /= 10
+		if digit>3 and digit%2 != 0 then
+			count += 1
+		end
+	end
+	return count
+end
+
 puts(dividersSum(ARGV[0].to_i))
+puts(countDigitsGreaterThenThree(ARGV[1].to_i))

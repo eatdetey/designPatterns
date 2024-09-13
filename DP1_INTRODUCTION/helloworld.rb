@@ -1,1 +1,1 @@
-puts "Hello World!" #eto moya pervaya strochka na ruby!!
+puts "Hello World!" #eto moya pervaya strochka na ruby!!!

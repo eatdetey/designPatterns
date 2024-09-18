@@ -1,13 +1,13 @@
 class Student
-	def initialize (surname, name, patronymic, id = nil, phone_num = nil, telegram = nil, email = nil, git = nil)
+	def initialize (surname, name, patronymic, **contacts)
 		@surname = surname
 		@name = name
 		@patronymic = patronymic
-		@id = id
-		@phone_num = phone_num
-		@telegram = telegram
-		@email = email
-		@git = git
+		@id = contacts[:id]
+		@phone_num = contacts[:phone_num]
+		@telegram = contacts[:telegram]
+		@email = contacts[:email]
+		@git = contacts[:git]
 	end
 	
 	## Method to show info about object
@@ -23,7 +23,5 @@ class Student
 	
 	##Getter&Setter for everything
 	
-	attr_reader :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
-	attr_writer :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
-	
+	attr_accessor :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
 end

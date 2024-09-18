@@ -23,42 +23,34 @@ class Student
 	
 	##Getter&Setter for name
 	
-	attr_reader :name
-	attr_writer :name
+	attr_accessor :name
 	
 	##Getter&Setter for surname
 	
-	attr_reader :surname
-	attr_writer :surname
+	attr_accessor :surname
 	
 	##Getter&Setter for patronymic
 	
-	attr_reader :patronymic
-	attr_writer :patronymic
+	attr_accessor :patronymic
 	
 	##Getter&Setter for ID
 	
-	attr_reader :id
-	attr_writer :id
+	attr_accessor :id
 
 	##Getter&Setter for phone number
 	
-	attr_reader :phone_num
-	attr_writer :phone_num
+	attr_accessor :phone_num
 	
 	##Getter&Setter for telegram
 	
-	attr_reader :telegram
-	attr_writer :telegram
+	attr_accessor :telegram
 	
 	##Getter&Setter for email
 	
-	attr_reader :email
-	attr_writer :email
+	attr_accessor :email
 
 	##Getter&Setter for github
 	
-	attr_reader :git
-	attr_writer :git
+	attr_accessor :git
 	
 end

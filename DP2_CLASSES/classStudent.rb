@@ -1,13 +1,24 @@
 class Student
-	def initialize (name, surname, patronymic, id = nil, phone_num = nil, telegram = nil, email = nil, git = nil)
-		@id = id
-		@name = name
+	def initialize (surname, name, patronymic, id = nil, phone_num = nil, telegram = nil, email = nil, git = nil)
 		@surname = surname
+		@name = name
 		@patronymic = patronymic
-		@phoneNum = phone_num
+		@id = id
+		@phone_num = phone_num
 		@telegram = telegram
 		@email = email
 		@git = git
+	end
+	
+	## Method to show info about object
+	
+	def show_info
+		puts "\n#{@surname} #{@name} #{@patronymic}:"
+		id ? (puts "ID - #{@id}") : nil
+		phone_num ? (puts "Phone number - #{@phone_num}") : nil
+		telegram ? (puts "Telegram - #{@telegram}") : nil
+		email ? (puts "Email - #{@email}") : nil
+		git ? (puts "Github - #{@git}\n") : nil
 	end
 	
 	##Getter&Setter for name

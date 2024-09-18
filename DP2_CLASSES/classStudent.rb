@@ -23,6 +23,7 @@ class Student
 	
 	##Getter&Setter for everything
 	
-	attr_accessor :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
+	attr_reader :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
+	attr_writer :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
 	
 end

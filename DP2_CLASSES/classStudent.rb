@@ -21,36 +21,8 @@ class Student
 		git ? (puts "Github - #{@git}\n") : nil
 	end
 	
-	##Getter&Setter for name
+	##Getter&Setter for everything
 	
-	attr_accessor :name
-	
-	##Getter&Setter for surname
-	
-	attr_accessor :surname
-	
-	##Getter&Setter for patronymic
-	
-	attr_accessor :patronymic
-	
-	##Getter&Setter for ID
-	
-	attr_accessor :id
-
-	##Getter&Setter for phone number
-	
-	attr_accessor :phone_num
-	
-	##Getter&Setter for telegram
-	
-	attr_accessor :telegram
-	
-	##Getter&Setter for email
-	
-	attr_accessor :email
-
-	##Getter&Setter for github
-	
-	attr_accessor :git
+	attr_accessor :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
 	
 end

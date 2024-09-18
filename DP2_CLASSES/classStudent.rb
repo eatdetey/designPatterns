@@ -23,82 +23,42 @@ class Student
 	
 	##Getter&Setter for name
 	
-	def name
-		@name
-	end
-	
-	def name=(name)
-		@name = name
-	end
+	attr_reader :name
+	attr_writer :name
 	
 	##Getter&Setter for surname
 	
-	def surname 
-		@surname
-	end
-	
-	def surname=(surname)
-		@surname = surname
-	end
+	attr_reader :surname
+	attr_writer :surname
 	
 	##Getter&Setter for patronymic
 	
-	def patronymic
-		@patronymic
-	end
-	
-	def patronymic=(patronymic)
-		@patronymic = patronymic
-	end
+	attr_reader :patronymic
+	attr_writer :patronymic
 	
 	##Getter&Setter for ID
 	
-	def id
-		@id
-	end
-	
-	def id=(id)
-		@id = id
-	end
+	attr_reader :id
+	attr_writer :id
 
 	##Getter&Setter for phone number
 	
-	def phone_num 
-		@phone_num
-	end
-	
-	def phone_num=(phone_num)
-		@phone_num = phone_num
-	end
+	attr_reader :phone_num
+	attr_writer :phone_num
 	
 	##Getter&Setter for telegram
 	
-	def telegram
-		@telegram
-	end
-	
-	def telegram=(telegram)
-		@telegram = telegram
-	end
+	attr_reader :telegram
+	attr_writer :telegram
 	
 	##Getter&Setter for email
 	
-	def email
-		@email
-	end
-	
-	def email=(email)
-		@email = email
-	end
-	
+	attr_reader :email
+	attr_writer :email
+
 	##Getter&Setter for github
 	
-	def git
-		@git
-	end
-	
-	def git=(git)
-		@git = git
-	end
+	attr_reader :git
+	attr_writer :git
 	
 end

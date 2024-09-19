@@ -130,6 +130,26 @@ class Student
 		end
 	end
 	
+	## Check git existence
+	
+	def is_git?
+		!@git.nil?	
+	end
+	
+	## Check contacts existence
+	
+	def is_contacts?
+		!@phone_num.nil? || !@telegram.nil? || !@email.nil?
+	end
+	
+	## Check GitHub and contacts existence
+	
+	def validate
+		is_git? && is_contacts?
+	end
+		
+		
+	
 	## Method to show info about object
 	
 	def show_info

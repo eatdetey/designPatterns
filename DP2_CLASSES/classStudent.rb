@@ -1,15 +1,4 @@
 class Student
-	def initialize (surname, name, patronymic, **contacts)
-		self.surname = surname
-		self.name = name
-		self.patronymic = patronymic
-		self.id = contacts[:id]
-		self.phone_num = contacts[:phone_num]
-		self.telegram = contacts[:telegram]
-		self.email = contacts[:email]
-		self.git = contacts[:git]
-	end
-	
 	## Name validator
 	
 	def self.is_valid_name?(name)
@@ -45,7 +34,17 @@ class Student
 	def self.is_valid_git?(git)
 		!!(git == nil || git =~ /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9._-]+)?(\/.*)?$/)
 	end
-
+	
+	##Object initialization
+	
+	def initialize (surname, name, patronymic, **contacts)
+		self.surname = surname
+		self.name = name
+		self.patronymic = patronymic
+		self.id = contacts[:id]
+		set_contacts(**contacts)
+	end
+	
 	##Getter for everything
 	
 	attr_reader :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
@@ -80,16 +79,6 @@ class Student
 		end
 	end
 	
-	## Phone number setter
-	
-	def phone_num=(phone_num)
-		if self.class.is_valid_phone_num?(phone_num)
-			@phone_num = phone_num
-		else
-		puts "\nPhone number (#{phone_num}) is in the wrong format and was not recorded!"
-		end
-	end
-	
 	## ID setter
 	
 	def id=(id)
@@ -100,34 +89,13 @@ class Student
 		end
 	end
 	
-	## Telegram setter
+	## Contacts setter
 	
-	def telegram=(telegram)
-		if self.class.is_valid_telegram?(telegram)
-			@telegram = telegram
-		else
-		puts "\nTelegram  (#{telegram}) is in the wrong format and was not recorded!"
-		end
-	end
-	
-	## Email setter
-	
-	def email=(email)
-		if self.class.is_valid_email?(email)
-			@email = email
-		else
-		puts "\nEmail (#{email}) is in the wrong format and was not recorded!"
-		end
-	end
-	
-	## GitHub setter
-	
-	def git=(git)
-		if self.class.is_valid_git?(git)
-			@git = git
-		else
-		puts "\nGithub (#{git}) link is in the wrong format and was not recorded!"
-		end
+	def set_contacts(**contacts)
+		(self.class.is_valid_phone_num?(contacts[:phone_num])) ? @phone_num=contacts[:phone_num] : (puts "\nPhone number (#{phone_num}) is in the wrong format and was not recorded!")
+		(self.class.is_valid_telegram?(contacts[:telegram])) ? @telegram=contacts[:telegram] : (puts "\nTelegram  (#{telegram}) is in the wrong format and was not recorded!")
+		(self.class.is_valid_email?(contacts[:email])) ? @email=contacts[:email] : (puts "\nEmail (#{email}) is in the wrong format and was not recorded!")
+		(self.class.is_valid_git?(contacts[:git])) ? @git=contacts[:git] : (puts "\nGithub (#{git}) link is in the wrong format and was not recorded!")
 	end
 	
 	## Check git existence
@@ -148,8 +116,6 @@ class Student
 		is_git? && is_contacts?
 	end
 		
-		
-	
 	## Method to show info about object
 	
 	def show_info

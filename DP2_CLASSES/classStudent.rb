@@ -4,11 +4,19 @@ class Student
 		@name = name
 		@patronymic = patronymic
 		@id = contacts[:id]
-		@phone_num = contacts[:phone_num]
+		self.phone_num = contacts[:phone_num] ##Change instance variable(@) to self so setter with validation can work
 		@telegram = contacts[:telegram]
 		@email = contacts[:email]
 		@git = contacts[:git]
 	end
+	
+	##Getter&Setter for everything EXEPT phone number
+	
+	attr_accessor :name, :surname, :patronymic, :id, :telegram, :email, :git
+	
+	## Phone number getter
+	
+	attr_reader :phone_num
 	
 	## Method to show info about object
 	
@@ -21,7 +29,19 @@ class Student
 		git ? (puts "Github - #{@git}\n") : nil
 	end
 	
-	##Getter&Setter for everything
+	## Phone number validator
 	
-	attr_accessor :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
+	def self.is_valid_phone_num?(phone_num)
+		!!(phone_num == nil || phone_num =~ /^(?:\+7|8)\d{10}$/)
+	end
+	
+	## Phone number setter
+	
+	def phone_num=(phone_num)
+		if self.class.is_valid_phone_num?(phone_num)
+			@phone_num = phone_num
+		else
+		puts "\nSome of the phone numbers are in the wrong format and were not recorded!"
+		end
+	end
 end

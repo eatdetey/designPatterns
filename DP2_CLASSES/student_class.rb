@@ -154,6 +154,31 @@ class Student
 		"#{get_initials}, #{is_git?}, #{is_contacts?}"
 	end
 	
+end
+
+class StudentShort < Student
+	attr_reader :id, :initials, :git, :contact
 	
+	def initialize (student:nil, id:nil, info:nil)
+		if student 
+			@id = student.id
+			@initials = student.get_initials
+			@git = student.git
+			@contact = student.is_contacts?
+		else
+			@id = id
+			info_list = info.split(' ')
+			@initials = info_list[0] + " " + info_list[1]
+			@git = info_list[2]
+			@contact = info_list[3]
+		end
+	end
+	
+	def to_s
+		"\n#{initials}:" +\
+		(id ? ("\nID - #{@id}") : "")  +\
+		(contact ? ("\nContact information - #{@contact}") : "") +\
+		(git ? ("\nGitHub - #{@git}\n") : "")
+	end
 	
 end

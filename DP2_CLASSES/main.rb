@@ -1,4 +1,4 @@
-require './classStudent.rb'
+require './student_class.rb'
 
 begin
 student_ivan = Student.new(surname:"Ivanov", name:"Ivan-Ivan", patronymic:"Ivanovich", phone_num:"+79509995552", telegram:"@ivanich", email:"ivanich@mail.ru", git:"https://github.com/ivanich")
@@ -6,7 +6,8 @@ rescue ArgumentError => e
 	puts "#{e.message}"
 end
 
-puts student_ivan
+#puts student_ivan
+puts student_ivan.get_info
 
 # student_petr = Student.new("Petrov", "Petr", "Petrovich", phone_num:"aaaavtomobil", telegram:"@petrucho")
 # student_petr.show_info

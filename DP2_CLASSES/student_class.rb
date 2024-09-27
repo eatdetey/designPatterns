@@ -110,14 +110,27 @@ class Student
 	## Check git existence
 	
 	def is_git?
-		!@git.nil?	
+		!@git.nil? ? @git : "No GitHub link"
 	end
 	
 	## Check contacts existence
 	
 	def is_contacts?
-		!@phone_num.nil? || !@telegram.nil? || !@email.nil?
+		if !@phone_num.nil?
+			@phone_num
+		elsif !@telegram.nil?
+			@telegram
+		elsif !@email.nil?
+			@email
+		else
+			"No contacts"
+		end
 	end
+	
+	def get_initials
+		"#{surname} #{name[0]}. #{patronymic[0]}."
+	end
+
 	
 	## Check GitHub and contacts existence
 	
@@ -135,5 +148,12 @@ class Student
 		(email ? ("\nEmail - #{@email}") : "")  +\
 		(git ? ("\nGithub - #{@git}\n") : "")
 	end
+	
+	
+	def get_info
+		"#{get_initials}, #{is_git?}, #{is_contacts?}"
+	end
+	
+	
 	
 end

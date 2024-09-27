@@ -1,13 +1,12 @@
 require './classStudent.rb'
 
 begin
-student_ivan = Student.new("Ivanov", "Ivan-Ivan", "Ivanovich", id:1, phone_num:"+79509995552", telegram:"@ivanich", email:"ivanich@mail.ru", git:"https://github.com/ivanich")
+student_ivan = Student.new(surname:"Ivanov", name:"Ivan-Ivan", patronymic:"Ivanovich", phone_num:"+79509995552", telegram:"@ivanich", email:"ivanich@mail.ru", git:"https://github.com/ivanich")
 rescue ArgumentError => e
 	puts "#{e.message}"
 end
 
-student_ivan&.show_info #& - save navigation operator (if object is nil method will not be complited)
-puts "\n#{student_ivan.validate}"
+puts student_ivan
 
 # student_petr = Student.new("Petrov", "Petr", "Petrovich", phone_num:"aaaavtomobil", telegram:"@petrucho")
 # student_petr.show_info

@@ -10,7 +10,7 @@ student_ivan_short = StudentShort.new(student:student_ivan)
 
 puts student_ivan_short
 
-student_max = StudentShort.new(id:1, info:"Max M.M. mail@mail.ry")
+student_max = StudentShort.new(id:1, info:"Max M.M. https://github.com/max max@mail.ru")
 
 puts student_max
 

@@ -1,4 +1,8 @@
-class Student
+class Person
+	attr_reader :id, :git
+	
+	protected
+	
 	## Name validator
 	
 	def self.is_valid_name?(name)
@@ -34,6 +38,8 @@ class Student
 	def self.is_valid_git?(git)
 		!!(git == nil || git =~ /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9._-]+)?(\/.*)?$/)
 	end
+end
+class Student < Person
 	
 	##Object initialization
 	
@@ -48,7 +54,7 @@ class Student
 	
 	##Getter for everything
 	
-	attr_reader :name, :surname, :patronymic, :id, :phone_num, :telegram, :email, :git
+	attr_reader :name, :surname, :patronymic, :phone_num, :telegram, :email
 	
 	## Name setter
 	
@@ -155,7 +161,6 @@ class Student
 	end
 	
 end
-
 class StudentShort < Student
 	attr_reader :id, :initials, :git, :contact
 	

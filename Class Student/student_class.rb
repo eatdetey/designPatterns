@@ -39,6 +39,7 @@ class Person
 		!!(git == nil || git =~ /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9._-]+)?(\/.*)?$/)
 	end
 end
+
 class Student < Person
 	
 	##Object initialization
@@ -116,12 +117,18 @@ class Student < Person
 	## Check git existence
 	
 	def is_git?
-		!@git.nil? ? @git : "No GitHub link"
+		!@git.nil?
 	end
 	
 	## Check contacts existence
 	
 	def is_contacts?
+		!@phone_num.nil? || !@telegram.nil? || !@email.nil?
+	end
+	
+	## Get any contact
+	
+	def get_contacts
 		if !@phone_num.nil?
 			@phone_num
 		elsif !@telegram.nil?
@@ -132,6 +139,8 @@ class Student < Person
 			"No contacts"
 		end
 	end
+	
+	## Get initials
 	
 	def get_initials
 		"#{surname} #{name[0]}. #{patronymic[0]}."
@@ -161,29 +170,30 @@ class Student < Person
 	end
 	
 end
-class StudentShort < Student
-	attr_reader :initials, :contact
-	
-	def initialize (student:nil, id:nil, info:nil)
-		if student 
-			@id = student.id
-			@initials = student.get_initials
-			@git = student.git
-			@contact = student.is_contacts?
-		else
-			@id = id
-			info_list = info.split(' ')
-			@initials = info_list[0] + " " + info_list[1]
-			@git = info_list[2]
-			@contact = info_list[3]
-		end
-	end
-	
-	def to_s
-		"\n#{initials}:" +\
-		(id ? ("\nID - #{@id}") : "")  +\
-		(contact ? ("\nContact information - #{@contact}") : "") +\
-		(git ? ("\nGitHub - #{@git}\n") : "")
-	end
-	
+class StudentShort < Person
+  attr_reader :initials, :contact
+
+  def initialize(student: nil, id: nil, info: nil)
+    if student
+      @id = student.id
+      @initials = student.get_initials
+      @git = student.git
+      @contact = student.get_contacts
+    elsif id && info
+      @id = id
+      info_list = info.split(' ')
+      @initials = info_list[0] + " " + info_list[1]
+      @git = info_list[2]
+      @contact = info_list[3]
+    else
+      raise ArgumentError, "Either provide a Student object or both id and info string"
+    end
+  end
+  
+  def to_s
+    "\n#{initials}:" +\
+    (id ? ("\nID - #{@id}") : "") +\
+    (contact ? ("\nContact information - #{@contact}") : "") +\
+    (git ? ("\nGitHub - #{@git}\n") : "")
+  end
 end

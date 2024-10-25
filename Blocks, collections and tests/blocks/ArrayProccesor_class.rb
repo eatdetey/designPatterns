@@ -54,4 +54,12 @@ class ArrayProcessor
     result
   end
  
+  def map
+    result = []
+    for element in @array
+      result << yield(element)
+    end
+    result
+  end
+ 
   end

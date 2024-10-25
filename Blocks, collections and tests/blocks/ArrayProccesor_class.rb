@@ -61,5 +61,12 @@ class ArrayProcessor
     end
     result
   end
+  
+  def detect
+    for element in @array
+      return element if yield(element)
+    end
+    nil
+  end
  
   end

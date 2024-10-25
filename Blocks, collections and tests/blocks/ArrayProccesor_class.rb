@@ -21,4 +21,13 @@ class ArrayProcessor
     result
   end
  
+
+  def max
+    max_value = @array.first
+    for element in @array[1..-1]
+      max_value = element if element > max_value
+    end
+    max_value
+  end
+ 
   end

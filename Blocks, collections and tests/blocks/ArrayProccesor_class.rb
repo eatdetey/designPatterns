@@ -45,5 +45,13 @@ class ArrayProcessor
     end
     sorted
   end
+  
+  def select
+    result = []
+    for element in @array
+      result << element if yield(element)
+    end
+    result
+  end
  
   end

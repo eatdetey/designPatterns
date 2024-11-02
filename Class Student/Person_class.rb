@@ -3,7 +3,7 @@ class Person
 	
 	def initialize(id: nil, git: nil)
 		@id = id
-		@git = git
+		self.git = git
 	end
 	
 	## Name validator

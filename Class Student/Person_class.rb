@@ -2,7 +2,7 @@ class Person
 	attr_reader :id, :git
 	
 	def initialize(id: nil, git: nil)
-		@id = id
+		self.id = id
 		self.git = git
 	end
 	

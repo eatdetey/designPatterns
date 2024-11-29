@@ -2,20 +2,39 @@ require './Person.rb'
 
 class Student < Person
 	
+	include Comparable
+	
 	##Object initialization
 	
-	def initialize (surname:, name:, patronymic:, id:nil, phone_num:nil, telegram:nil, email:nil, git:nil)
+	def initialize (surname:, name:, patronymic:, id:nil, phone_num:nil, telegram:nil, email:nil, git:nil, date_of_birth:nil)
 		self.surname = surname
 		self.name = name
 		self.patronymic = patronymic
+		self.date_of_birth = date_of_birth
 		super(id: id, git: git)
 		set_contacts(phone_num:phone_num, telegram:telegram, email:email)
 	end
 	
 	##Getter for everything
 	
-	attr_reader :name, :surname, :patronymic, :phone_num, :telegram, :email
+	attr_reader :name, :surname, :patronymic, :phone_num, :telegram, :email, :date_of_birth
 	
+	def <=>(other)
+		if other.is_a?(Student)
+		  self.date_of_birth <=> other.date_of_birth
+		else
+		  raise ArgumentError, "Can't compare #{self.class} with #{other.class}"
+		end
+	end
+
+	def date_of_birth=(date_of_birth)
+		if self.class.is_valid_date_of_birth?(date_of_birth)
+			@date_of_birth = date_of_birth
+		else
+			raise ArgumentError, "\n Date of birth (#{name}) has the wrong format and was not recorded."
+		end
+	end
+
 	## Name setter
 	
 	def name=(name)
@@ -93,7 +112,8 @@ class Student < Person
 		(phone_num ? ("\nPhone number - #{@phone_num}") : "") +\
 		(telegram ? ("\nTelegram - #{@telegram}") : "") +\
 		(email ? ("\nEmail - #{@email}") : "")  +\
-		(git ? ("\nGithub - #{@git}\n") : "")
+		(git ? ("\nGithub - #{@git}") : "") +\
+		(date_of_birth ? ("\nDate of birth - #{@date_of_birth}\n") : "")
 	end
 	
 	

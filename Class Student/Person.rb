@@ -41,6 +41,10 @@ class Person
 	def self.is_valid_git?(git)
 		!!(git == nil || git =~ /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9._-]+)?(\/.*)?$/)
 	end
+
+	def self.is_valid_date_of_birth?(date_of_birth)
+		!!(date_of_birth == nil || date_of_birth =~ /^\A(\d{2}\.\d{2}\.(\d{4}))\z$/)
+	end
 	
 	def validate
     !@git.nil? && (!@telegram.nil? || !@email.nil? || !@phone_num.nil? || !@contact.nil?)

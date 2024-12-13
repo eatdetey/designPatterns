@@ -1,0 +1,38 @@
+[
+      {
+        "surname": "Смирнов",
+        "name": "Алексей",
+        "patronymic": "Петрович",
+        "id": 1,
+        "phone_num": "89991234567",
+        "git": "https://github.com/alex",
+        "date_of_birth": "12.07.2003"
+      },
+      {
+        "surname": "Петрова",
+        "name": "Екатерина",
+        "patronymic": "Игоревна",
+        "id": 2,
+        "phone_num": "89265554433",
+        "telegram": "@Katya123",
+        "git": "katya_repo",
+        "date_of_birth": "22.11.2004"
+      },
+      {
+        "surname": "Зайцев",
+        "name": "Дмитрий",
+        "patronymic": "Андреевич",
+        "id": 3,
+        "phone_num": "89881234567",
+        "telegram": "@DimaZ",
+        "date_of_birth": "03.04.2005"
+      },
+      {
+        "surname": "Крылова",
+        "name": "Анна",
+        "patronymic": "Викторовна",
+        "id": 4,
+        "phone_num": "89033445566"
+      }
+]
+  

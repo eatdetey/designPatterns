@@ -1,23 +1,23 @@
-require 'json'
+require 'yaml'
 require_relative '../Student/Student.rb'
 require_relative '../StudentShort/StudentShort.rb'
 require_relative '../DataList/DataListStudentShort.rb'
 
-class StudentsListJSON
+class Students_list_YAML
 
     def initialize(file_path)
         self.file_path = file_path
         self.students = []
-        # Если не существует, создаётся пустой
+        # Если файла не существует, создаётся пустой YAML
         unless File.exist?(file_path)
-            File.write(file_path, [].to_json)
+            File.write(file_path, [].to_yaml)
         end
     end    
 
     # Чтение из файла
     def read
         content = File.read(file_path)
-        student_hashes = JSON.parse(content, symbolize_names: true)
+        student_hashes = YAML.safe_load(content, symbolize_names: true, permitted_classes: [Date, Symbol])
 
         self.students = student_hashes.map do |student_hash|
             Student.new(**student_hash)
@@ -27,13 +27,14 @@ class StudentsListJSON
     # Запись в файл
     def write
         content = students.map{|student| student.to_h}
-        File.write(file_path, JSON.pretty_generate(content))
+        File.write(file_path, content.to_yaml)
     end    
 
     # Получение студента по ID
     def get_student_by_id(id)
         student = students.find { |student| student.id == id }
         raise "No student with such ID: #{id}" if student.nil?
+        student
     end
 
     # Получение списка k по счету n объектов Student_short в форме Data_list
@@ -60,7 +61,6 @@ class StudentsListJSON
 
     # Добавление нового студента
     def add_student(student)
-        # Генерация нового ID
         new_id = students.empty? ? 1 : students.max_by(&:id).id + 1 
         student.id = new_id
         self.students << student
@@ -87,12 +87,11 @@ class StudentsListJSON
         students.delete_at(student_index)
     end
 
-    # Количество студентов
     def get_student_short_count
         students.size
-    end
+    end 
 
     private
 
     attr_accessor :file_path, :students
-end    
+end

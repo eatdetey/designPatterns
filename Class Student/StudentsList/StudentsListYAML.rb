@@ -1,27 +1,22 @@
 require 'yaml'
-require_relative './StudentsList.rb'
+require_relative './StudentsListStrategy.rb'
 
-class StudentsListYAML < StudentsList
-    # Чтение из файла
-    def read
+class StudentsListYAML < StudentsListStrategy
+    def read(file_path)
         content = File.read(file_path)
-        student_hashes = YAML.safe_load(content, symbolize_names: true, permitted_classes: [Date, Symbol])
+        student_hashes = YAML.safe_load(content, symbolize_names: true, permitted_classes: [Symbol])
 
-        self.students = student_hashes.map do |student_hash|
+        students = student_hashes.map do |student_hash|
             Student.new(**student_hash)
         end
     end    
 
-    # Запись в файл
-    def write
+    def write(file_path, students)
         content = students.map { |student| student.to_h }
         File.write(file_path, content.to_yaml)
-    end   
+    end
 
-    private
-    # Пустое содержимое для нового файла (YAML)
     def empty_content
         [].to_yaml
     end
 end
-

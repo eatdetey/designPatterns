@@ -5,21 +5,22 @@ require_relative '../StudentShort/StudentShort.rb'
 require_relative '../DataList/DataListStudentShort.rb'
 
 class StudentsList
-    def initialize(file_path)
+    def initialize(file_path, strategy)
         self.file_path = file_path
         self.students = []
+        self.strategy = strategy
         # Если файл не существует, создаём пустой файл
         create_empty_file_if_not_exists
     end
 
     # Чтение из файла
     def read
-        raise NotImplementedError, "Method not implemented in this class"
+        self.students = strategy.read(file_path)
     end    
 
     # Запись в файл
     def write
-        raise NotImplementedError, "Method not implemented in this class"
+        strategy.write(file_path, students)
     end    
 
     # Получение студента по ID
@@ -87,7 +88,7 @@ class StudentsList
 
     private
 
-    attr_accessor :file_path, :students
+    attr_accessor :file_path, :students, :strategy
 
     def create_empty_file_if_not_exists
         # Если файл не существует, создаём пустой файл
@@ -97,6 +98,6 @@ class StudentsList
     end
 
     def empty_content
-        raise NotImplementedError, "Method not implemented in this class"
+        strategy.empty_content
     end
 end

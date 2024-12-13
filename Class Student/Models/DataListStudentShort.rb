@@ -4,24 +4,16 @@ require "./StudentShort.rb"
 
 class DataListStudentShort < DataList
 
-    def get_names
-        %w[№ name git contact]
+    def base_names
+        ["name", "git", "contact"]
     end
 
-    # Получение объекта класса Data_Table
-    def get_data
-        data_table = [self.get_names]
-
-        data.each_with_index.map do |student_short, index|
-            data_table <<
-            [
-                index + 1,
-                student_short.initials,
-                student_short.git,
-                student_short.contact
-            ]
-        end
-
-        DataTable.new(data_table)
+    def build_row(student_short, index)
+        [
+            index + 1,                  
+            student_short.initials,     
+            student_short.git,           
+            student_short.contacts       
+        ]
     end
 end

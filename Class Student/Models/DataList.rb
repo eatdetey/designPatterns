@@ -1,11 +1,10 @@
-class Data_List
+class DataList
 
     def initialize(data)
         self.data = data
         self.selected = []
     end
 
-    # Выбор элемента по номеру
     def select(number)
         unless number.is_a?(Integer) && number >= 0 && number < data.size
             raise ArgumentError, 'The parameter must be a number within the array size'
@@ -13,18 +12,36 @@ class Data_List
         self.selected << number unless self.selected.include?(number)
     end
 
-    # Получение ID выбранных элементов
     def get_selected
         self.selected
     end
 
     def get_names
-        raise NotImplementedError, 'Method not implemented in this class'
+        column_names = ['№'] # Нулевой столбец - порядковый номер
+        base_names.each do |name| 
+            column_names << name
+        end
+        column_names
     end
 
+    # Получение объекта класса Data_Table
     def get_data
-        raise NotImplementedError, 'Method not implemented in this class'
+        data_table = [get_names]
+        data.each_with_index do |item, index|
+            data_table << build_row(item, index)
+        end
+        Data_table.new(data_table)
     end
+
+    # Абстрактный метод получения имен атрибутов
+    def base_names
+        raise NotImplementedError, 'Method not implemented in this class'
+    end    
+
+    # Абстрактный метод построения строки данных
+    def build_row(item, index)
+        raise NotImplementedError, 'Method not implemented in this class'
+    end    
 
     private
 

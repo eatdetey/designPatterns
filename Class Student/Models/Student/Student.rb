@@ -27,14 +27,17 @@ class Student < Person
 		end
 	end
 
-	def date_of_birth=(date_of_birth)
-		if self.class.is_valid_date_of_birth?(date_of_birth)
-			@date_of_birth = date_of_birth
+	def date_of_birth=(val)
+		if self.class.is_valid_date_of_birth?(val)
+			if val.is_a?(String)
+				@date_of_birth = Date.parse(val)
+			else
+				@date_of_birth = val
+			end
 		else
-			raise ArgumentError, "\n Date of birth (#{name}) has the wrong format and was not recorded."
+			raise ArgumentError, "Wrong format"
 		end
 	end
-
 	## Name setter
 	
 	def name=(name)
@@ -69,7 +72,11 @@ class Student < Person
 	
 	def id=(id)
 		if self.class.is_valid_id?(id)
-			@id = id
+			if val.is_a?(String)
+				@id = val.to_i
+			else
+				@id = val
+			end
 		else
 		raise ArgumentError, "\nID (#{id}) is in the wrong format and was not recorded!"
 		end
@@ -104,6 +111,10 @@ class Student < Person
 		!@phone_num.nil? || !@telegram.nil? || !@email.nil?
 	end
 		
+	def self.new_from_hash(hash)
+		self.new(**hash.transform_keys(&:to_sym))
+	end
+
 	## Changing method to_s instead making new method for showing object's info
 	
 	def to_s

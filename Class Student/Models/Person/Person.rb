@@ -1,3 +1,5 @@
+require 'date'
+
 class Person
 	attr_reader :id, :git
 	
@@ -9,13 +11,13 @@ class Person
 	## Name validator
 	
 	def self.is_valid_name?(name)
-		!!(name =~ /^[А-ЯA-Z][а-яa-zA-ZА-Я\-]{1,20}$/)
+		!!(name =~ /^[А-ЯЁA-Z][а-яёa-zA-ZА-ЯЁ\-]{1,20}$/)
 	end
 	
 	## ID validator
 	
 	def self.is_valid_id?(id)
-		!!(id == nil || id.to_s =~ /^(\d+)$/)
+		str.nil? || str.is_a?(Integer) || (str.is_a?(String) && str.to_i.to_s == str rescue false)
 	end
 	
 	## Phone number validator
@@ -42,8 +44,8 @@ class Person
 		!!(git == nil || git =~ /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9._-]+)?(\/.*)?$/)
 	end
 
-	def self.is_valid_date_of_birth?(date_of_birth)
-		!!(date_of_birth == nil || date_of_birth =~ /^\A(\d{2}\.\d{2}\.(\d{4}))\z$/)
+	def self.is_valid_date_of_birth?(str)
+		str.nil? || str.is_a?(Date) || (str.is_a?(String) && Date.parse(str) rescue false)
 	end
 	
 	def validate

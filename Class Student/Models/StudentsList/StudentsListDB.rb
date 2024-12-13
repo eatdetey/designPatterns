@@ -6,7 +6,7 @@ require_relative '../Database/ConnectionDB.rb'
 
 class StudentsListDB
     def initialize(db_config)
-        self.connection = DB_connection.new(db_config)
+        self.connection = DB_connection.instance(db_config)
     end
 
     # Получение студента по ID

@@ -33,12 +33,20 @@ class DataList
         Data_table.new(data_table)
     end
 
-    # Абстрактный метод получения имен атрибутов
+    def data=(data)
+        unless data.is_a?(Array)
+            raise ArgumentError, 'Data must be an array'
+        end
+
+        @data = data
+    end
+
+    private
+
     def base_names
         raise NotImplementedError, 'Method not implemented in this class'
     end    
 
-    # Абстрактный метод построения строки данных
     def build_row(item, index)
         raise NotImplementedError, 'Method not implemented in this class'
     end    
@@ -48,11 +56,4 @@ class DataList
     attr_reader :data
     attr_accessor :selected
 
-    def data=(data)
-        unless data.is_a?(Array)
-            raise ArgumentError, 'Data must be an array'
-        end
-
-        @data = data
-    end
 end

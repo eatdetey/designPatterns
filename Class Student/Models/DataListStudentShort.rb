@@ -3,6 +3,8 @@ require "./Models/DataTable.rb"
 require "./StudentShort.rb"
 
 class DataListStudentShort < DataList
+    
+    private
 
     def base_names
         ["name", "git", "contact"]

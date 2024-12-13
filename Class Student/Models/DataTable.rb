@@ -1,7 +1,19 @@
-class Data_Table
-    
+class DataTable
+
     def initialize(data)
         self.data = data
+    end
+
+    def get_element(row_index, column_index)
+        self.data[row_index][column_index]
+    end
+
+    def row_count
+        self.data.size
+    end
+
+    def column_count
+        self.data.empty ? 0 : self.data[0].size
     end
 
     private

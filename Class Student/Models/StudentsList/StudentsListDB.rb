@@ -3,10 +3,11 @@ require_relative '../Student/Student.rb'
 require_relative '../StudentShort/StudentShort.rb'
 require_relative '../DataList/DataListStudentShort.rb'
 require_relative '../Database/ConnectionDB.rb'
+require_relative './StudentsListInterface.rb'
 
-class StudentsListDB
+class StudentsListDB < StudentsListInterface
     def initialize(db_config)
-        self.connection = DB_connection.instance(db_config)
+        self.connection = ConnectionDB.instance(db_config)
     end
 
     # Получение студента по ID

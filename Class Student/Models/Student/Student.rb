@@ -1,4 +1,5 @@
 require_relative '../Person/Person.rb'
+require_relative '../BinaryTree/BinaryTree.rb'
 
 class Student < Person
 	
@@ -26,6 +27,22 @@ class Student < Person
 		  raise ArgumentError, "Can't compare #{self.class} with #{other.class}"
 		end
 	end
+
+	def ==(other)
+        if email.nil? || self.email == other.email
+            return false
+        end
+        if telegram.nil? || self.telegram == other.email
+            return false
+        end
+        if phone.nil? || self.phone == other.phone
+            return false
+        end
+        if github.nil? || self.github == other.github
+            return false
+        end
+        return true
+    end
 
 	def date_of_birth=(val)
 		if self.class.is_valid_date_of_birth?(val)

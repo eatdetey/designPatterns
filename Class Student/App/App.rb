@@ -1,10 +1,12 @@
 require 'fox16'
 require_relative "./StudentListView.rb"
+require_relative '../Models/StudentsList/StudentsList.rb'
 include Fox
 
 app = FXApp.new
-file_adapter = StudentsListFile.new('../Data/students.json', StudentsListJSON.new)
-students_list = StudentsList.new(file_adapter)
-StudentListView.new(app, file_adapter)
+file_processor = StudentsListFile.new('../Data/students.json', StudentsListJSON.new)
+adapter = StudentsListFileAdapter.new(file_processor)
+students_list = StudentsList.new(adapter)
+StudentListView.new(app, students_list)
 app.create
 app.run

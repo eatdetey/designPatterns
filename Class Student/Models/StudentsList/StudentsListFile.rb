@@ -64,7 +64,6 @@ class StudentsListFile
         new_id = students.empty? ? 1 : students.max_by(&:id).id + 1 
         student.id = new_id
         self.students << student
-        write
     end
 
     private def unique?(student)
@@ -88,7 +87,6 @@ class StudentsListFile
         end
         students[student_index] = new_student
         new_student.id = id
-        write
     end
 
     # Удаление студента по ID
@@ -99,7 +97,6 @@ class StudentsListFile
         end
         # Удаление студента
         students.delete_at(student_index)
-        write
     end
 
     # Количество студентов

@@ -5,7 +5,7 @@ require_relative '../DataList/DataListStudentShort.rb'
 require_relative '../Database/ConnectionDB.rb'
 require_relative './StudentsListInterface.rb'
 
-class StudentsListDB < StudentsListInterface
+class StudentsListDB
     def initialize(db_config)
         self.connection = ConnectionDB.instance(db_config)
     end

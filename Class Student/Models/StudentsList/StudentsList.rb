@@ -1,3 +1,6 @@
+require_relative './StudentsListFileAdapter.rb'
+require_relative './StudentsListDBAdapter.rb'
+
 class StudentsList
     def initialize(adapter)
         self.adapter = adapter

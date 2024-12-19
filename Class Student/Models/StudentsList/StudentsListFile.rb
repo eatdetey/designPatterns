@@ -3,9 +3,10 @@ require 'yaml'
 require_relative '../Student/Student.rb'
 require_relative '../StudentShort/StudentShort.rb'
 require_relative '../DataList/DataListStudentShort.rb'
-require_relative './StudentsListInterface.rb'
+require_relative './StudentsListYAML.rb'
+require_relative './StudentsListJSON.rb'
 
-class StudentsListFile < StudentsListInterface
+class StudentsListFile
     def initialize(file_path, strategy)
         self.file_path = file_path
         self.students = []
@@ -55,11 +56,23 @@ class StudentsListFile < StudentsListInterface
 
     # Добавление нового студента
     def add_student(student)
-        # Генерация нового ID
+        begin
+            unique?(student)
+        rescue => e
+            raise e
+        end
         new_id = students.empty? ? 1 : students.max_by(&:id).id + 1 
         student.id = new_id
         self.students << student
         write
+    end
+
+    private def unique?(student)
+        tree = BinaryTree.new
+        self.student_list.each do |student|
+            tree.append(student)
+        end
+        return !tree.find{|stud_node| stud_node == student}
     end
 
     # Замена студента по ID
@@ -68,7 +81,11 @@ class StudentsListFile < StudentsListInterface
         if student_index.nil?
             raise "No student with such ID: #{id}"
         end
-        # Замена студента
+        begin
+            unique?(new_student)
+        rescue => ex
+            raise ex
+        end
         students[student_index] = new_student
         new_student.id = id
         write

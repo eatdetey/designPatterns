@@ -12,7 +12,7 @@ class DataListStudentShort < DataList
 
     def build_row(student_short, index)
         [
-            index + 1,                  
+            index + 1 + offset,                
             student_short.initials,     
             student_short.git,           
             student_short.contact       

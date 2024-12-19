@@ -1,5 +1,3 @@
-USE students;
-
 INSERT INTO student (surname, firstname, lastname, date_of_birth, telegram, email, phone_number, git) VALUES
 ('Иванов', 'Иван', 'Иванович', '2004-06-16', '@Sebas', 'ivan@gmail.com', '88005553535', 'https://github.com/ivan'),
 ('Петров', 'Петр', 'Петрович', '2003-11-23', '@Petro', 'petr@gmail.com', '89005553536', 'https://github.com/petr'),

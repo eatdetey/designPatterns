@@ -1,8 +1,9 @@
 class DataList
 
-    def initialize(data)
+    def initialize(data, offset = 0)
         self.data = data
         self.selected = []
+        self.offset = offset
     end
 
     def select(number)
@@ -41,6 +42,13 @@ class DataList
         @data = data
     end
 
+    def offset=(offset)
+        unless offset.is_a?(Integer) && offset >= 0
+            raise ArgumentError, 'Offset must be positive'
+        end
+        @offset = offset
+    end
+
     private
 
     def base_names
@@ -53,7 +61,7 @@ class DataList
 
     private
 
-    attr_reader :data
+    attr_reader :data, :offset
     attr_accessor :selected
 
 end

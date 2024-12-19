@@ -1,6 +1,7 @@
 require 'pg'
 require_relative '../Models/Student/Student.rb'
-require_relative '../Models/StudentsList/StudentsListDB'
+require_relative '../Models/StudentsList/StudentsListDB.rb'
+require_relative '../Models/StudentsList/StudentsList.rb'
 
 host = 'localhost'
 port = 5434
@@ -10,7 +11,7 @@ password = 'admin'
 
 db_params = {host: host, port: port, dbname: dbname, user: user, password: password}
 
-students_list_db = StudentsListDB.new(db_params)
+students_list_db = StudentsList.new(StudentsListDB.new(db_params))
 
 test_student = Student.new(surname:"Серый", name:"Максим", patronymic:"Андреевич", phone_num: "89182297016", date_of_birth: '1990-02-02')
 # students_list_db.add_student(test_student)

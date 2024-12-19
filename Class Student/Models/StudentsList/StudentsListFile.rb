@@ -41,7 +41,7 @@ class StudentsListFile < StudentsListInterface
         selected_students = students[start, n] || []
 
         # Преобразуем в список Student_short
-        student_short_list = selected_students.map { |student| StudentShort.new(student: student) }
+        student_short_list = selected_students.map { |student| StudentShort.from_student(student) }
 
         data_list ||= DataListStudentShort.new(student_short_list, start)
 

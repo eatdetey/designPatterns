@@ -1,13 +1,11 @@
-USE students
-
 CREATE TABLE student (
-	id serial PRIMARY KEY, 
-	surname varchar(40) NOT NULL,
-	firstname varchar(40) NOT NULL,
-	lastname varchar(40) NOT NULL,
-	date_of_birth date NOT NULL,
-	telegram varchar(40),
-	email varchar(40),
-	phone_number varchar(40),
-	git varchar(40)
+  id SERIAL PRIMARY KEY, 
+  surname VARCHAR(40) NOT NULL,
+  firstname VARCHAR(40) NOT NULL,
+  lastname VARCHAR(40) NOT NULL,
+  date_of_birth DATE NOT NULL,
+  telegram VARCHAR(40),
+  email VARCHAR(40),
+  phone_number VARCHAR(40),
+  git VARCHAR(40)
 );

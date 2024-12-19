@@ -1,38 +1,202 @@
 [
-      {
-        "surname": "Смирнов",
-        "name": "Алексей",
-        "patronymic": "Петрович",
-        "id": 1,
-        "phone_num": "89991234567",
-        "git": "https://github.com/alex",
-        "date_of_birth": "12.07.2003"
-      },
-      {
-        "surname": "Петрова",
-        "name": "Екатерина",
-        "patronymic": "Игоревна",
-        "id": 2,
-        "phone_num": "89265554433",
-        "telegram": "@Katya123",
-        "git": "katya_repo",
-        "date_of_birth": "22.11.2004"
-      },
-      {
-        "surname": "Зайцев",
-        "name": "Дмитрий",
-        "patronymic": "Андреевич",
-        "id": 3,
-        "phone_num": "89881234567",
-        "telegram": "@DimaZ",
-        "date_of_birth": "03.04.2005"
-      },
-      {
-        "surname": "Крылова",
-        "name": "Анна",
-        "patronymic": "Викторовна",
-        "id": 4,
-        "phone_num": "89033445566"
-      }
+  {
+      "surname": "Иванов",
+      "name": "Иван",
+      "patronymic": "Иванович",
+      "date_of_birth": "2004-06-16",
+      "telegram": "@Sebas",
+      "email": "ivan@gmail.com",
+      "phone_num": "88005553535",
+      "git": "https://github.com/ivan"
+  },
+  {
+      "surname": "Петров",
+      "name": "Петр",
+      "patronymic": "Петрович",
+      "date_of_birth": "2003-11-23",
+      "telegram": "@Petro",
+      "email": "petr@gmail.com",
+      "phone_num": "89005553536",
+      "git": "https://github.com/petr"
+  },
+  {
+      "surname": "Сидоров",
+      "name": "Сидор",
+      "patronymic": "Сидорович",
+      "date_of_birth": "2005-03-12",
+      "telegram": "@Sidor",
+      "email": "sidor@gmail.com",
+      "phone_num": "87005553537",
+      "git": "https://github.com/sidor"
+  },
+  {
+      "surname": "Кузнецов",
+      "name": "Алексей",
+      "patronymic": "Иванович",
+      "date_of_birth": "2004-08-05",
+      "telegram": "@Kuz",
+      "email": "alex@gmail.com",
+      "phone_num": "86005553538",
+      "git": "https://github.com/kuz"
+  },
+  {
+      "surname": "Новиков",
+      "name": "Дмитрий",
+      "patronymic": "Петрович",
+      "date_of_birth": "2003-07-10",
+      "telegram": "@Novik",
+      "email": "dmitry@gmail.com",
+      "phone_num": "85005553539",
+      "git": "https://github.com/novik"
+  },
+  {
+      "surname": "Фёдоров",
+      "name": "Максим",
+      "patronymic": "Сидорович",
+      "date_of_birth": "2004-09-14",
+      "telegram": "@Fed",
+      "email": "maks@gmail.com",
+      "phone_num": "84005553540",
+      "git": "https://github.com/fed"
+  },
+  {
+      "surname": "Попов",
+      "name": "Сергей",
+      "patronymic": "Алексеевич",
+      "date_of_birth": "2005-01-22",
+      "telegram": "@Pop",
+      "email": "sergey@gmail.com",
+      "phone_num": "83005553541",
+      "git": "https://github.com/pop"
+  },
+  {
+      "surname": "Смирнов",
+      "name": "Антон",
+      "patronymic": "Максимович",
+      "date_of_birth": "2004-12-30",
+      "telegram": "@Smir",
+      "email": "anton@gmail.com",
+      "phone_num": "82005553542",
+      "git": "https://github.com/smir"
+  },
+  {
+      "surname": "Васильев",
+      "name": "Андрей",
+      "patronymic": "Сергеевич",
+      "date_of_birth": "2003-04-15",
+      "telegram": "@Vas",
+      "email": "andrey@gmail.com",
+      "phone_num": "81005553543",
+      "git": "https://github.com/vas"
+  },
+  {
+      "surname": "Зайцев",
+      "name": "Владимир",
+      "patronymic": "Дмитриевич",
+      "date_of_birth": "2005-06-08",
+      "telegram": "@Zaitsev",
+      "email": "vlad@gmail.com",
+      "phone_num": "80005553544",
+      "git": "https://github.com/zaitsev"
+  },
+  {
+      "surname": "Соловьев",
+      "name": "Виктор",
+      "patronymic": "Александрович",
+      "date_of_birth": "2003-02-19",
+      "telegram": "@Sol",
+      "email": "viktor@gmail.com",
+      "phone_num": "+79005553545",
+      "git": "https://github.com/sol"
+  },
+  {
+      "surname": "Морозов",
+      "name": "Григорий",
+      "patronymic": "Викторович",
+      "date_of_birth": "2004-05-21",
+      "telegram": "@Moroz",
+      "email": "grigory@gmail.com",
+      "phone_num": "+78005553546",
+      "git": "https://github.com/moroz"
+  },
+  {
+      "surname": "Козлов",
+      "name": "Николай",
+      "patronymic": "Сергеевич",
+      "date_of_birth": "2005-10-01",
+      "telegram": "@Koz",
+      "email": "nikolay@gmail.com",
+      "phone_num": "+77005553547",
+      "git": "https://github.com/koz"
+  },
+  {
+      "surname": "Орлов",
+      "name": "Павел",
+      "patronymic": "Денисович",
+      "date_of_birth": "2004-07-25",
+      "telegram": "@Orlov",
+      "email": "pavel@gmail.com",
+      "phone_num": "+76005553548",
+      "git": "https://github.com/orlov"
+  },
+  {
+      "surname": "Крылов",
+      "name": "Артем",
+      "patronymic": "Андреевич",
+      "date_of_birth": "2003-06-14",
+      "telegram": "@Krylov",
+      "email": "artem@gmail.com",
+      "phone_num": "+75005553549",
+      "git": "https://github.com/krylov"
+  },
+  {
+      "surname": "Белоусов",
+      "name": "Геннадий",
+      "patronymic": "Павлович",
+      "date_of_birth": "2005-03-09",
+      "telegram": "@Belous",
+      "email": "gennady@gmail.com",
+      "phone_num": "+74005553550",
+      "git": "https://github.com/belous"
+  },
+  {
+      "surname": "Тимофеев",
+      "name": "Евгений",
+      "patronymic": "Геннадьевич",
+      "date_of_birth": "2004-09-30",
+      "telegram": "@Timof",
+      "email": "evgeny@gmail.com",
+      "phone_num": "+73005553551",
+      "git": "https://github.com/timof"
+  },
+  {
+      "surname": "Макаров",
+      "name": "Леонид",
+      "patronymic": "Игоревич",
+      "date_of_birth": "2003-11-18",
+      "telegram": "@Makar",
+      "email": "leonid@gmail.com",
+      "phone_num": "+72005553552",
+      "git": "https://github.com/makar"
+  },
+  {
+      "surname": "Герасимов",
+      "name": "Владислав",
+      "patronymic": "Анатольевич",
+      "date_of_birth": "2005-04-17",
+      "telegram": "@Gerasimov",
+      "email": "vladislav@gmail.com",
+      "phone_num": "+71005553553",
+      "git": "https://github.com/gerasimov"
+  },
+  {
+      "surname": "Григорьев",
+      "name": "Степан",
+      "patronymic": "Валентинович",
+      "date_of_birth": "2004-01-26",
+      "telegram": "@Grig",
+      "email": "stepan@gmail.com",
+      "phone_num": "+70005553554",
+      "git": "https://github.com/grig"
+  }
 ]
-  

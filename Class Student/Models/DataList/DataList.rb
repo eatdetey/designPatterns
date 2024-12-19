@@ -4,6 +4,8 @@ class DataList
         self.data = data
         self.selected = []
         self.offset = offset
+        self.observers = []
+        self.count = 0
     end
 
     def select(number)
@@ -49,6 +51,20 @@ class DataList
         @offset = offset
     end
 
+    def notify
+        return if observers.nil?
+        observers.each do |observer|
+            observer.set_table_params(self.get_names, self.count)
+            observer.set_table_data(self.get_data)
+        end
+    end
+
+    def add_observer(observer)
+        self.observers << observer
+    end
+
+    attr_accessor :count
+
     private
 
     def base_names
@@ -62,6 +78,6 @@ class DataList
     private
 
     attr_reader :data, :offset
-    attr_accessor :selected
+    attr_accessor :selected, :observers
 
 end

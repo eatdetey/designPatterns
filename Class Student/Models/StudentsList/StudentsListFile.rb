@@ -45,6 +45,8 @@ class StudentsListFile
         student_short_list = selected_students.map { |student| StudentShort.from_student(student) }
 
         data_list ||= DataListStudentShort.new(student_short_list, start)
+        data_list.offset = start
+        data_list.data = student_short_list
 
         data_list
     end
